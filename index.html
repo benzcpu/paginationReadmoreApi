@@ -1,0 +1,60 @@
+<html>
+<head><title></title></head>
+<link rel="stylesheet" href="animate.css">
+<style>
+    .ui-hidden{
+      display: none;
+    }
+    .read-more-api{
+        cursor: pointer;
+    }
+</style>
+
+<body>
+<div style="display:flex">
+    <div class="pagination-group1" >
+        <div class="test111"></div>
+        <div class="read-more-api" method="get" data-function="test" action="http://localhost/new/readmore/database/dataAPI.php">read-more</div>
+    </div>
+
+    <div class="pagination-group2" >
+        <div id="test111"></div>
+        <div class="read-more-api" method="get" data-function="test" action="http://localhost/new/readmore/database/dataAPI.php">read-more</div>
+    </div>
+
+</div>
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="paginationReadmoreApi.js"></script>
+
+</html>
+<!-- effect style : https://daneden.github.io/animate.css/ -->
+<script>
+    paginationReadmoreItemApi({
+        classGroupItem:'.pagination-group1',
+        dataTo:'.test111',
+        // showNextPageItem:10,
+    });
+    paginationReadmoreItemApi({
+        classGroupItem:'.pagination-group2',
+        dataTo:'#test111',
+        // showNextPageItem:3,
+    });
+
+    function test(self,data){
+        var html="";
+        $.each(data.data,function (idx,item) {
+            html=html+"<div class='animated zoomIn' style=\"display: flex\">\n" +
+                "            <div>id:"+item.id+"</div>\n" +
+                "            <div>name:"+item.name+"</div>\n" +
+                "        </div>"
+        });
+        if(!data.data){
+            $(self).remove();
+        }
+        sentDataApiTo(self,html)
+    }
+</script>
