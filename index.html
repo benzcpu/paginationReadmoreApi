@@ -14,12 +14,12 @@
 <div style="display:flex">
     <div class="pagination-group1" >
         <div class="test111"></div>
-        <div class="read-more-api" method="get" data-function="test" action="http://localhost/new/readmore/database/paginationReadmoreApi/dataAPI.php">read-more</div>
+        <div class="read-more-api" method="get" data-function="test" action="http://localhost/paginationReadmoreApi-master/dataAPI.php">read-more</div>
     </div>
 
     <div class="pagination-group2" >
         <div id="test111"></div>
-        <div class="read-more-api" method="get" data-function="test" action="http://localhost/new/readmore/database/paginationReadmoreApi/dataAPI.php">read-more</div>
+        <div class="read-more-api" method="get" data-function="test" action="http://localhost/paginationReadmoreApi-master/dataAPI.php">read-more</div>
     </div>
 
 </div>
@@ -36,11 +36,14 @@
     paginationReadmoreItemApi({
         classGroupItem:'.pagination-group1',
         dataTo:'.test111',
+        dataAction:'append',
         // showNextPageItem:10,
     });
     paginationReadmoreItemApi({
         classGroupItem:'.pagination-group2',
         dataTo:'#test111',
+        dataAction:'prependTo',
+		dataLog:true,
         // showNextPageItem:3,
     });
 
